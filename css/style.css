@@ -2,7 +2,7 @@
   height: auto;
   padding-bottom: 20%;
   text-align: center;
-  background: url("http://i.imgur.com/XyTPFS9.jpg") fixed no-repeat;
+  background: url("images/header.jpg") fixed no-repeat;
   background-size: cover;
 }
 
@@ -10,7 +10,7 @@
   height: auto;
   padding-bottom: 20%;
   text-align: center;
-  background: url("http://i.imgur.com/NOHzXFK.jpg") fixed no-repeat;
+  background: url("images/about.jpg") fixed no-repeat;
   background-size: cover;
 }
 
@@ -59,7 +59,7 @@
   padding-bottom: 20%;
   text-align: center;
   background-size: 100% auto;
-  background: url("http://i.imgur.com/zndFPPe.jpg") fixed no-repeat;
+  background: url("images/portfolio.jpg") fixed no-repeat;
   background-size: 100% 100%;
   text-align: center;
 }
@@ -154,7 +154,7 @@
   height: auto;
   padding-bottom: 20%;
   text-align: center;
-  background: url("http://i.imgur.com/JkuWHdo.jpg") no-repeat fixed;
+  background: url("images/contact.jpg") no-repeat fixed;
   background-size: cover;
 }
 
