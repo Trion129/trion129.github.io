@@ -1,0 +1,109 @@
+.intro-header {
+  height: auto;
+  padding-bottom: 20%;
+  text-align: center;
+  background: url("http://s31.postimg.org/599hxtupn/Xy_TPFS9.jpg") fixed no-repeat;
+  background-size: cover;
+}
+
+.about-section {
+  height: auto;
+  padding-bottom: 20%;
+  text-align: center;
+  background: url("http://s31.postimg.org/ec2kiljuj/NOHz_XFK.jpg") fixed no-repeat;
+  background-size: cover;
+}
+
+.header-text {
+  font-size: 4em;
+  color: #EEE;
+  padding-top: 20%;
+}
+
+.btn-text {
+  color: white;
+  font-size: 20px;
+  background-color: black;
+}
+
+.quote-text {
+  color: white;
+  beckground-color: #DDD;
+}
+
+.mypic {
+  height: auto;
+  width: 40%;
+  border-radius: 100%;
+  margin: 200px 50px 50px 50px;
+  border: solid blue 1px;
+}
+
+.text-desc {
+  margin: 5px 0px 0px 10px;
+  text-align: left;
+  font-size: 1.7em;
+  color: #000;
+}
+
+.desc-head {
+  color: black;
+  font-style: bold;
+  font-family: Monospace;
+  font-size: 40px;
+  margin: 100px 10px 30px 50px;
+}
+
+.portfolio-section {
+  height: auto;
+  padding-bottom: 20%;
+  text-align: center;
+  background-size: 100% auto;
+  background: url("http://s31.postimg.org/kw5coxxvf/znd_FPPe.jpg") fixed no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+}
+
+.portfolio-header {
+  font-style: bold;
+  font-family: Monospace;
+  font-size: 4em;
+  color: #FFF;
+  margin: 60px 0px 40px 0px;
+}
+
+.portfolio-caption{
+  background:#FFF;
+  padding:9px;
+}
+
+.portfolio-item {
+  margin:2em;
+  border: 1px outset rgba(255, 255, 255, 0.6);
+}
+
+.contact-section {
+  height: auto;
+  padding-bottom: 20%;
+  text-align: center;
+  background: url("http://s31.postimg.org/shcyy5i9n/Jku_WHdo.jpg") no-repeat fixed;
+  background-size: cover;
+}
+
+.email-container {
+  text-align:left;
+  color:white;
+  font-family:Monospace;
+  font-size:1.7em;
+  margin-top: 100px;
+}
+
+.social-container{
+  margin-top: 100px;
+}
+
+footer{
+  margin-top:10px;
+  background:#222;
+  background-size:cover;
+}
