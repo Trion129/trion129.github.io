@@ -1,5 +1,7 @@
 'use strict';
 
+emailjs.init("user_Ydl8NSKKQEoiy9idlDil2");
+
 $('a[href^="#"]').on('click', function (event) {
   var target = $($(this).attr('href'));
 
@@ -35,7 +37,7 @@ function check_if_in_view() {
     if (element_bottom_position >= window_top_position && element_top_position <= window_bottom_position) {
       $element.addClass('in-view');
     } else {
-      $element.removeClass('in-view');
+      //$element.removeClass('in-view');
     }
   });
 }

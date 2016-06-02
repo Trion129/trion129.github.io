@@ -21,30 +21,30 @@
   <body>
 
     <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://trion129.github.io" target="_blank">Trion's Portfolio</a>
-    </div>
-    <div class="collapse navbar-collapse" id="collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="#home">Home</a>
-        </li>
-        <li>
-          <a href="#about">About</a>
-        </li>
-        <li>
-          <a href="#portfolio">Portfolio</a>
-        </li>
-        <li>
-          <a href="#contact">Contact</a>
-        </li>
-      </ul>
-    </div>
+    <a class="navbar-brand" href="http://trion129.github.io" target="_blank">Trion's Portfolio</a>
+  </div>
+  <div class="collapse navbar-collapse" id="collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a href="#home">Home</a>
+      </li>
+      <li>
+        <a href="#about">About</a>
+      </li>
+      <li>
+        <a href="#portfolio">Portfolio</a>
+      </li>
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
+    </ul>
+  </div>
 </div>
 <a id="home"></a>
 <div class="intro-header">
@@ -67,12 +67,13 @@
 
 <a id="about"></a>
 <div class="about-section">
-    <p class="desc-head">About Me</p>
-    <p class="text-desc">
-      My name is Parminder Singh and I love to solve problems. I am a web designer and developer, software developer, writer and a quick learner. My biggest strengths are my creativity and imagination. My hobbies include drawing, writing poetry and of course lots of coding!! I always keep working on something new and love to take new challenges.<br><br><span class="head">Languages and Frameworks:</span><br> C, C++, Python, Javascript, C#, Pylab, Java
-        <br>HTML, CSS3, JQuery, PHP, SQL, Bootstrap, MongoDB, ReactJS, NodeJS, Express
-      <br><br><span class="head">Working Tools:</span><br>Visual Basic, Sublime, Photoshop, Unity 3D, Git, Linux, Windows
-    </p>
+  <p class="desc-head">About Me</p>
+  <p class="text-desc">
+    My name is Parminder Singh and I love to solve problems. I am a web designer and developer, software developer, writer and a quick learner. My biggest strengths are my creativity and imagination. My hobbies include drawing, writing poetry and of course
+    lots of coding!! I always keep working on something new and love to take new challenges.<br><br><span class="head">Languages and Frameworks:</span><br> C, C++, Python, Javascript, C#, Pylab, Java
+    <br>HTML, CSS3, JQuery, PHP, SQL, Bootstrap, MongoDB, ReactJS, NodeJS, Express
+    <br><br><span class="head">Working Tools:</span><br>Visual Basic, Sublime, Photoshop, Unity 3D, Git, Linux, Windows
+  </p>
 </div>
 
 
@@ -94,9 +95,27 @@
 <a id="contact"></a>
 <div class="contact-section">
   <div class="row">
-    <p class="email-container col-xs-12 col-md-6">Contact with me:<br> parmsingh129@yahoo.com
-    </p>
-    <div class="col-xs-12 col-md-4">
+    <div class="email-container col-sm-6">
+      <p>Contact with me:<br></p> 
+    <form id="myform" onsubmit="emailjs.sendForm('default_service', 'formresponse', this); return false;" method="post" role="form">
+        <div class="form-group">
+          <label for="name"> Name </label>
+          <input id="name" class="form-control" type='text' placeholder='Name'  name="sender" required>
+        </div>
+        <div class="form-group">
+          <label for="email"> Email Address</lable>
+          <input id="email" class="form-control" type='email' placeholder='Email Address' name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message"> Message</label>
+          <textarea id="message" class="form-control" rows='5' placeholder='Message' name="message" required></textarea>
+        </div>
+        <div class="g-recaptcha" data-sitekey="6LfXlyETAAAAALALPLlE2it2ls414QLnXLgKNXnQ"></div>
+        <br>
+        <button class="btn btn-default btn-text" type='submit'>Send</button>
+    </form>
+    </div>
+    <div class="col-sm-6">
       <ul class="social-container list-group text-left">
         <li><a href="http://twitter.com/trion129" target="_blank" class="btn btn-default btn-text"><i class="fa fa-twitter "></i> Twitter</a></li><br>
         <li><a href="https://in.linkedin.com/in/trion129" target="_blank" class="btn btn-default btn-text"><i class="fa fa-linkedin"></i> Linkedin</a></li><br>
@@ -105,39 +124,33 @@
       </ul>
     </div>
   </div>
+  <div class="footer">
+  <ul class="list-inline">
+    <li>
+      <a href="#home">Home</a>
+    </li>
+    <li class="footer-menu-divider">&sdot;</li>
+    <li>
+      <a href="#about">About</a>
+    </li>
+    <li class="footer-menu-divider">&sdot;</li>
+    <li>
+      <a href="#portfolio">Portfolio</a>
+    </li>
+    <li class="footer-menu-divider">&sdot;</li>
+    <li>
+      <a href="#contact">Contact</a>
+    </li>
+  </ul>
+  <p class="copyright text-muted small">Copyright &copy; Trion Developent Studio. All Rights Reserved</p>
 </div>
-
-<!-- Footer -->
-<footer>
-  <div class="foot-container">
-    <div class="row">
-      <div class="col-lg-12">
-        <ul class="list-inline">
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li class="footer-menu-divider">&sdot;</li>
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li class="footer-menu-divider">&sdot;</li>
-          <li>
-            <a href="#portfolio">Portfolio</a>
-          </li>
-          <li class="footer-menu-divider">&sdot;</li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
-        <p class="copyright text-muted small">Copyright &copy; Trion Developent Studio. All Rights Reserved</p>
-      </div>
-    </div>
-  </div>
-</footer>
+</div>
     <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script src='https://fb.me/react-15.1.0.min.js'></script>
 <script src='https://fb.me/react-dom-15.1.0.min.js'></script>
 <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+<script src='https://cdn.emailjs.com/dist/email.min.js'></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
         <script src="js/index.js"></script>
 
