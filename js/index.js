@@ -46,7 +46,7 @@ function check_if_in_view() {
     if (element_bottom_position >= window_top_position && element_top_position <= window_bottom_position) {
       $element.addClass('in-view');
     } else {
-      //$element.removeClass('in-view');
+      if ($element.hasClass("redo")) $element.removeClass('in-view');
     }
   });
 }

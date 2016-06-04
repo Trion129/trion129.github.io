@@ -111,15 +111,6 @@
   overflow-y:hidden;
   background:url(http://s19.postimg.org/jexckkqnn/milky_way_1031138_1280.jpg) fixed;
   background-size: cover;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-    /* flex-direction: column;*/
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center; 
   padding-top:25vh;
   padding-bottom:35vh;
 }
