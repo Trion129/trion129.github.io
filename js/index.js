@@ -1,6 +1,15 @@
-'use strict';
+"use strict";
 
 emailjs.init("user_Ydl8NSKKQEoiy9idlDil2");
+
+$("#img_highQuality").off().on("load", function () {
+  $(".intro-header").css({
+    "background-image": "url(dir/image.png)"
+  });
+  $(".portfolio-section").css({
+    "background-image": "url(dir/image.png)"
+  });
+});
 
 $('a[href^="#"]').on('click', function (event) {
   var target = $($(this).attr('href'));
@@ -123,14 +132,14 @@ var backProjects = [];
 var currentTab = 0;
 
 var ProjectView = React.createClass({
-  displayName: 'ProjectView',
+  displayName: "ProjectView",
 
   render: function render() {
     var Projectrows = this.props.projects.map(function (projectRow, index) {
       return React.createElement(ProjectRow, { projectRow: projectRow, key: index });
     });
     return React.createElement(
-      'div',
+      "div",
       null,
       Projectrows
     );
@@ -138,43 +147,43 @@ var ProjectView = React.createClass({
 });
 
 var ProjectRow = React.createClass({
-  displayName: 'ProjectRow',
+  displayName: "ProjectRow",
 
   render: function render() {
     var projects = this.props.projectRow.map(function (project, index) {
       return React.createElement(Project, { key: index, project: project });
     });
     return React.createElement(
-      'div',
-      { className: 'row text-center' },
+      "div",
+      { className: "row text-center" },
       projects
     );
   }
 });
 
 var Project = React.createClass({
-  displayName: 'Project',
+  displayName: "Project",
 
   render: function render() {
     return React.createElement(
-      'div',
-      { className: 'col-sm-3 portfolio-item animation-element' },
+      "div",
+      { className: "col-sm-3 portfolio-item animation-element" },
       React.createElement(
-        'a',
+        "a",
         { href: this.props.project.link },
-        React.createElement('img', { src: this.props.project.image, className: 'img-responsive' })
+        React.createElement("img", { src: this.props.project.image, className: "img-responsive" })
       ),
       React.createElement(
-        'div',
-        { className: 'portfolio-caption' },
+        "div",
+        { className: "portfolio-caption" },
         React.createElement(
-          'h4',
+          "h4",
           null,
           this.props.project.head
         ),
         React.createElement(
-          'p',
-          { id: 'small-text', className: 'text-muted' },
+          "p",
+          { id: "small-text", className: "text-muted" },
           this.props.project.tech
         )
       )
