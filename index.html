@@ -96,22 +96,25 @@
   <div class="row">
     <div class="email-container col-sm-6">
       <p>Contact with me:<br></p> 
-    <form id="myform" onsubmit="emailjs.sendForm('default_service', 'formresponse', this); return false;" method="post" role="form">
+    <form id="email_form" action="https://postmail.invotes.com/send"
+    method="post" role="form">
+        <input type="hidden" name="subject" value="Portfolio Form Response" />
         <div class="form-group">
           <label for="name"> Name </label>
-          <input id="name" class="form-control" type='text' placeholder='Name'  name="sender" required>
+          <input id="name" name="extra_name" class="form-control" type='text' placeholder='Name'  name="sender" required>
         </div>
         <div class="form-group">
-          <label for="email"> Email Address</lable>
-          <input id="email" class="form-control" type='email' placeholder='Email Address' name="email" required>
+          <label for="email"> Email Address</label>
+          <input id="email" class="form-control" type='email' placeholder='Email Address' name="extra_email" required>
         </div>
         <div class="form-group">
           <label for="message"> Message</label>
-          <textarea id="message" class="form-control" rows='5' placeholder='Message' name="message" required></textarea>
+          <textarea id="message" name="text" class="form-control" rows='5' placeholder='Message' required></textarea>
         </div>
-        <div class="g-recaptcha" data-sitekey="6LfXlyETAAAAALALPLlE2it2ls414QLnXLgKNXnQ"></div>
-        <br>
-        <button class="btn btn-default btn-text" type='submit'>Send</button>
+        <input type="hidden" name="access_token" value="pphotimlgfqa8g89i1tuk73b" />
+        <input type="hidden" name="success_url" value=".?message=Email+Successfully+Sent%21&isError=0" />
+        <input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" />
+      <button id="submit_form" class="btn btn-default btn-text" type='submit'>Send</button>
     </form>
     </div>
     <div class="col-sm-6">
@@ -147,10 +150,8 @@
 <img id="img_highQuality" src="http://s19.postimg.org/6c1q1b0fn/milky_way_1031138_1920.jpg">
     <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js'></script>
-<script src='https://fb.me/react-dom-15.1.0.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js'></script>
 <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
-<script src='https://www.google.com/recaptcha/api.js'></script>
-<script src='https://cdn.emailjs.com/dist/email.min.js'></script>
 
         <script src="js/index.js"></script>
 

@@ -1,7 +1,5 @@
 "use strict";
 
-emailjs.init("user_Ydl8NSKKQEoiy9idlDil2");
-
 $("#img_highQuality").off().on("load", function () {
   $(".intro-header").css({
     "background-image": "url(dir/image.png)"
