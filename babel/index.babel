@@ -67,28 +67,28 @@ var frontProjects = [
   [
     {
       head:"Game of Life",
-      link:"http://codepen.io/trion/pen/ZWMNMP",
+      link:"http://codepen.io/trion/full/ZWMNMP",
       image:"http://s19.postimg.org/9qs4in08j/gameoflife.jpg",
       tech:"React & Bootstrap"
     },
     {
       head:"FreeCodeCamp Leaderboard",
-      link:"http://codepen.io/trion/pen/xVJBLL",
+      link:"http://codepen.io/trion/full/xVJBLL",
       image:"http://s19.postimg.org/9bgupmeb7/Capture.jpg",
       tech:"React & Bootstrap"
     },
     {
       head:"Recipe Book",
-      link:"http://codepen.io/trion/pen/VaGaJW",
+      link:"http://codepen.io/trion/full/VaGaJW",
       image:"http://s19.postimg.org/olgpwt9tf/Recipe.jpg",
       tech:"React,Bootstrap & LocalStorage"
     }
   ],
   [
     {
-      head:"Tribute to Dr. Norman",
+      head:"Tribute to Neil deGrasse Tyson",
       link:"https://codepen.io/trion/full/VaWPrB",
-      image:"http://s31.postimg.org/jalhjdy9n/1n_XTOre.jpg",
+      image:"http://s19.postimg.org/tavobz2sz/niel.jpg",
       tech:"Bootstrap & CSS"
     },
     {
