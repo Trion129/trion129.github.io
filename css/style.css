@@ -1,3 +1,7 @@
+body{
+  background: #000;
+}
+
 @-webkit-keyframes fade {
   0% { opacity: 0 }
   100% { opacity: 1 }
@@ -109,7 +113,7 @@
   min-height:100vh;
   text-align: center;
   overflow-y:hidden;
-  background:url(http://s19.postimg.org/jexckkqnn/milky_way_1031138_1280.jpg) fixed;
+  background:url(https://s19.postimg.org/6q69siv3n/northern_lights.jpg) fixed;
   background-size: cover;
   padding-top:25vh;
   padding-bottom:35vh;
