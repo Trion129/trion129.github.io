@@ -187,11 +187,11 @@ var Project = React.createClass({
       <div className="col-sm-3 portfolio-item animation-element">
         <a href={this.props.project.link}>
           <img src={this.props.project.image} className="img-responsive" />
-        </a>
         <div className="portfolio-caption">
           <h4>{this.props.project.head}</h4>
           <p id="small-text" className="text-muted">{this.props.project.tech}</p>
         </div>
+        </a>
       </div>
     )
   }

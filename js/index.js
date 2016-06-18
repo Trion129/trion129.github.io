@@ -160,20 +160,20 @@ var Project = React.createClass({
       React.createElement(
         'a',
         { href: this.props.project.link },
-        React.createElement('img', { src: this.props.project.image, className: 'img-responsive' })
-      ),
-      React.createElement(
-        'div',
-        { className: 'portfolio-caption' },
+        React.createElement('img', { src: this.props.project.image, className: 'img-responsive' }),
         React.createElement(
-          'h4',
-          null,
-          this.props.project.head
-        ),
-        React.createElement(
-          'p',
-          { id: 'small-text', className: 'text-muted' },
-          this.props.project.tech
+          'div',
+          { className: 'portfolio-caption' },
+          React.createElement(
+            'h4',
+            null,
+            this.props.project.head
+          ),
+          React.createElement(
+            'p',
+            { id: 'small-text', className: 'text-muted' },
+            this.props.project.tech
+          )
         )
       )
     );

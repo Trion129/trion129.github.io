@@ -251,6 +251,11 @@ img[src='None']{
   padding-left:3%;
 }
 
+a:hover{
+  text-decoration: none
+}
+
+
 @media only screen and (max-width: 760px) {
     .social-container{
         margin-top:10%;
