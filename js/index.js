@@ -116,7 +116,16 @@ var apiProjects = [[{
   tech: "NodeJS"
 }]];
 
-var backProjects = [];
+var fullProjects = [
+  [
+    {
+      head: "Voting Webapp",
+      link: "https://voting-trion.herokuapp.com/",
+      image: "https://s31.postimg.org/qobedoo3v/voteapp.jpg",
+      tech: "NodeJS, Mongodb, Jade & MVC Model"
+    }
+  ]
+];
 
 var currentTab = 0;
 
@@ -195,7 +204,7 @@ function changeTab(val) {
       $animation_elements = $('.animation-element');
       break;
     case 3:
-      ReactDOM.render(React.createElement(ProjectView, { projects: backProjects }), document.getElementById('projectView'));
+      ReactDOM.render(React.createElement(ProjectView, { projects: fullProjects }), document.getElementById('projectView'));
       $animation_elements = $('.animation-element');
       break;
   }
