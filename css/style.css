@@ -64,10 +64,22 @@ body{
   }
 }
 
-.navbar-inverse{
-  opacity:0.9;
-  background:#000;
+.navbar {
+  font-family: "Righteous";
+  -webkit-transition: all 0.6s ease-out;
+  transition: all 0.6s ease-out;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.30);
+  border: none;
+  font-size: 1.3em;
+  padding: 4vh;
   color:white;
+}
+
+.navbar.scrolled {
+    padding: 0;
+    font-size: 1em;
+    background: rgb(0, 0, 0);
 }
 
 .navbar-right{
@@ -158,6 +170,7 @@ img[src='None']{
 }
 
 .header-text {
+  font-family: 'Righteous';
   font-size: 4em;
   color: #FFF;
 }
@@ -185,7 +198,8 @@ img[src='None']{
 }
 
 .text-desc {
-  margin: 5px 0 0 10px;
+  font-family: "Raleway",Serif;
+  padding: 10px;
   text-align: left;
   font-size: 1.7em;
   color: #000;
@@ -193,17 +207,15 @@ img[src='None']{
 
 .head{
   color: #000;
-  text-shadow: 2px 2px 4px #555;
   font-weight: bold;
-  font-family: Monospace;
+  font-family: "Righteous", Monospace;
   font-size: 1em;
 }
 
 .desc-head {
   color: #000;
-  text-shadow: 2px 2px 4px #555;
   font-weight: bold;
-  font-family: Monospace;
+  font-family: "Righteous", Monospace;
   font-size: 3em;
 }
 

@@ -11,6 +11,22 @@ $('a[href^="#"]').on('click', function (event) {
   }
 });
 
+function checkScroll() {
+  var startY = $('.navbar').height() * 2; //The point where the navbar changes in px
+
+  if ($(window).scrollTop() > startY) {
+    $('.navbar').addClass("scrolled");
+  } else {
+    $('.navbar').removeClass("scrolled");
+  }
+}
+
+if ($('.navbar').length > 0) {
+  $(window).on("scroll load resize", function () {
+    checkScroll();
+  });
+}
+
 $('.switchbuttons').on('click', function () {
   $('.switchbuttons').removeClass("enabled");
   $(this).addClass("enabled");
@@ -48,10 +64,10 @@ var softProjects = [[{
 }]];
 
 var frontProjects = [[{
-  head: "Game of Life",
-  link: "http://codepen.io/trion/full/ZWMNMP",
-  image: "http://s19.postimg.org/9qs4in08j/gameoflife.jpg",
-  tech: "React & Bootstrap"
+  head: "Dungeon Crawler Game",
+  link: "http://codepen.io/trion/full/wGROGd",
+  image: "https://s31.postimg.org/n4jeijwfv/dungCrawler.jpg",
+  tech: "React & Javascript"
 }, {
   head: "FreeCodeCamp Leaderboard",
   link: "http://codepen.io/trion/full/xVJBLL",
@@ -116,16 +132,29 @@ var apiProjects = [[{
   tech: "NodeJS"
 }]];
 
-var fullProjects = [
-  [
-    {
-      head: "Voting Webapp",
-      link: "https://voting-trion.herokuapp.com/",
-      image: "https://s31.postimg.org/qobedoo3v/voteapp.jpg",
-      tech: "NodeJS, Mongodb, Jade & MVC Model"
-    }
-  ]
-];
+var fullProjects = [[{
+  head: "Voting Webapp",
+  link: "https://voting-trion.herokuapp.com/",
+  image: "https://s31.postimg.org/qobedoo3v/voteapp.jpg",
+  tech: "NodeJS, Mongodb, Jade & MVC Model"
+}]];
+
+var datavisProjects = [[{
+  head: "Land-Surface Temperature Heatmap",
+  link: "http://codepen.io/trion/full/RRRMzm",
+  image: "https://s31.postimg.org/7llylfo57/heatmap.jpg",
+  tech: "D3.js and JQuery"
+}, {
+  head: "Nation Contiguity Graph",
+  link: "http://codepen.io/trion/full/pbEwOg",
+  image: "https://s31.postimg.org/easi1g9h7/natcontiguity.jpg",
+  tech: "D3.js and JQuery"
+}, {
+  head: "Meteorite Data Across World",
+  link: "http://codepen.io/trion/full/LZRBom",
+  image: "https://s31.postimg.org/bzl7incpn/meteor.jpg",
+  tech: "D3.js and JQuery"
+}]];
 
 var currentTab = 0;
 
@@ -193,21 +222,26 @@ function changeTab(val) {
   switch (val) {
     case 0:
       ReactDOM.render(React.createElement(ProjectView, { projects: frontProjects }), document.getElementById('projectView'));
-      $animation_elements = $('.animation-element');
+      //$animation_elements = $('.animation-element');
       break;
     case 1:
       ReactDOM.render(React.createElement(ProjectView, { projects: softProjects }), document.getElementById('projectView'));
-      $animation_elements = $('.animation-element');
+      //$animation_elements = $('.animation-element');
       break;
     case 2:
       ReactDOM.render(React.createElement(ProjectView, { projects: apiProjects }), document.getElementById('projectView'));
-      $animation_elements = $('.animation-element');
+      //$animation_elements = $('.animation-element');
       break;
     case 3:
       ReactDOM.render(React.createElement(ProjectView, { projects: fullProjects }), document.getElementById('projectView'));
-      $animation_elements = $('.animation-element');
+      //$animation_elements = $('.animation-element');
+      break;
+    case 4:
+      ReactDOM.render(React.createElement(ProjectView, { projects: datavisProjects }), document.getElementById('projectView'));
+      //$animation_elements = $('.animation-element');
       break;
   }
 }
 
 changeTab(0);
+$animation_elements = $('.animation-element');
