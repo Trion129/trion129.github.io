@@ -1,59 +1,3 @@
-$('a[href^="#"]').on('click', function (event) {
-  var target = $($(this).attr('href'));
-
-  if (target.length) {
-    event.preventDefault();
-    $('html, body').animate({
-      scrollTop: target.offset().top
-    }, 1000);
-  }
-});
-
-function checkScroll() {
-  var startY = $('.navbar').height() * 2; //The point where the navbar changes in px
-
-  if ($(window).scrollTop() > startY) {
-    $('.navbar').addClass("scrolled");
-  } else {
-    $('.navbar').removeClass("scrolled");
-  }
-}
-
-if ($('.navbar').length > 0) {
-  $(window).on("scroll load resize", function () {
-    checkScroll();
-  });
-}
-
-$('.switchbuttons').on('click', function () {
-  $('.switchbuttons').removeClass("enabled");
-  $(this).addClass("enabled");
-});
-
-var $animation_elements = $('.animation-element');
-var $window = $(window);
-$window.on('scroll resize', check_if_in_view);
-$window.trigger('scroll');
-function check_if_in_view() {
-  var window_height = $window.height();
-  var window_top_position = $window.scrollTop();
-  var window_bottom_position = window_top_position + window_height;
-
-  $.each($animation_elements, function () {
-    var $element = $(this);
-    var element_height = $element.outerHeight();
-    var element_top_position = $element.offset().top;
-    var element_bottom_position = element_top_position + element_height;
-
-    //check to see if this current container is within viewport
-    if (element_bottom_position >= window_top_position && element_top_position <= window_bottom_position) {
-      $element.addClass('in-view');
-    } else {
-      if ($element.hasClass("redo")) $element.removeClass('in-view');
-    }
-  });
-}
-
 var softProjects = [[{
   head: "Box Shooter",
   link: "https://github.com/Trion129/Box-Shooter",
@@ -153,18 +97,74 @@ var datavisProjects = [[{
   image: "https://s31.postimg.org/bzl7incpn/meteor.jpg",
   tech: "D3.js and JQuery"
 }]];
+$('a[href^="#"]').on('click', function (event) {
+    var target = $($(this).attr('href'));
+
+    if (target.length) {
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: target.offset().top
+        }, 1000);
+    }
+});
+
+function checkScroll() {
+    var startY = $('.navbar').height() * 2; //The point where the navbar changes in px
+
+    if ($(window).scrollTop() > startY) {
+        $('.navbar').addClass("scrolled");
+    } else {
+        $('.navbar').removeClass("scrolled");
+    }
+}
+
+if ($('.navbar').length > 0) {
+    $(window).on("scroll load resize", function () {
+        checkScroll();
+    });
+}
+
+$('.switchbuttons').on('click', function () {
+    $('.switchbuttons').removeClass("enabled");
+    $(this).addClass("enabled");
+});
+
+var $animation_elements = $('.animation-element');
+var $window = $(window);
+$window.on('scroll resize', check_if_in_view);
+$window.trigger('scroll');
+function check_if_in_view() {
+    var window_height = $window.height();
+    var window_top_position = $window.scrollTop();
+    var window_bottom_position = window_top_position + window_height;
+
+    $.each($animation_elements, function () {
+        var $element = $(this);
+        var element_height = $element.outerHeight();
+        var element_top_position = $element.offset().top;
+        var element_bottom_position = element_top_position + element_height;
+
+        //check to see if this current container is within viewport
+        if (element_bottom_position >= window_top_position && element_top_position <= window_bottom_position) {
+            $element.addClass('in-view');
+        } else {
+            if ($element.hasClass("redo")) $element.removeClass('in-view');
+        }
+    });
+}
 
 var currentTab = 0;
 
+$animation_elements = $('.animation-element');
 var ProjectView = React.createClass({
-  displayName: 'ProjectView',
+  displayName: "ProjectView",
 
   render: function () {
     var Projectrows = this.props.projects.map(function (projectRow, index) {
       return React.createElement(ProjectRow, { projectRow: projectRow, key: index });
     });
     return React.createElement(
-      'div',
+      "div",
       null,
       Projectrows
     );
@@ -172,42 +172,42 @@ var ProjectView = React.createClass({
 });
 
 var ProjectRow = React.createClass({
-  displayName: 'ProjectRow',
+  displayName: "ProjectRow",
 
   render: function () {
     var projects = this.props.projectRow.map(function (project, index) {
       return React.createElement(Project, { key: index, project: project });
     });
     return React.createElement(
-      'div',
-      { className: 'row text-center' },
+      "div",
+      { className: "row text-center" },
       projects
     );
   }
 });
 
 var Project = React.createClass({
-  displayName: 'Project',
+  displayName: "Project",
 
   render: function () {
     return React.createElement(
-      'div',
-      { className: 'col-sm-3 portfolio-item' },
+      "div",
+      { className: "col-sm-3 portfolio-item" },
       React.createElement(
-        'a',
+        "a",
         { href: this.props.project.link },
-        React.createElement('img', { src: this.props.project.image, className: 'img-responsive' }),
+        React.createElement("img", { src: this.props.project.image, className: "img-responsive" }),
         React.createElement(
-          'div',
-          { className: 'portfolio-caption' },
+          "div",
+          { className: "portfolio-caption" },
           React.createElement(
-            'h4',
+            "h4",
             null,
             this.props.project.head
           ),
           React.createElement(
-            'p',
-            { id: 'small-text', className: 'text-muted' },
+            "p",
+            { id: "small-text", className: "text-muted" },
             this.props.project.tech
           )
         )
@@ -220,26 +220,20 @@ function changeTab(val) {
   switch (val) {
     case 0:
       ReactDOM.render(React.createElement(ProjectView, { projects: frontProjects }), document.getElementById('projectView'));
-      //$animation_elements = $('.animation-element');
       break;
     case 1:
       ReactDOM.render(React.createElement(ProjectView, { projects: softProjects }), document.getElementById('projectView'));
-      //$animation_elements = $('.animation-element');
       break;
     case 2:
       ReactDOM.render(React.createElement(ProjectView, { projects: apiProjects }), document.getElementById('projectView'));
-      //$animation_elements = $('.animation-element');
       break;
     case 3:
       ReactDOM.render(React.createElement(ProjectView, { projects: fullProjects }), document.getElementById('projectView'));
-      //$animation_elements = $('.animation-element');
       break;
     case 4:
       ReactDOM.render(React.createElement(ProjectView, { projects: datavisProjects }), document.getElementById('projectView'));
-      //$animation_elements = $('.animation-element');
       break;
   }
 }
 
 changeTab(0);
-$animation_elements = $('.animation-element');
