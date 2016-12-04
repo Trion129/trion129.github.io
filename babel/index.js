@@ -201,7 +201,7 @@ var ProjectRow = React.createClass({
 var Project = React.createClass({
   render: function(){
     return (
-      <div className="col-sm-3 portfolio-item animation-element">
+      <div className="col-sm-3 portfolio-item">
         <a href={this.props.project.link}>
           <img src={this.props.project.image} className="img-responsive" />
         <div className="portfolio-caption">

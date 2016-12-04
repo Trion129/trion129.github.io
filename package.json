@@ -1,0 +1,28 @@
+{
+  "name": "trion129.github.io",
+  "version": "0.0.5",
+  "description": "My portfolio",
+  "main": "index.html",
+  "scripts": {
+    "transpile": "babel babel --out-file js/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Trion129/trion129.github.io.git"
+  },
+  "keywords": [
+    "portfolio",
+    "projects"
+  ],
+  "author": "trion",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Trion129/trion129.github.io/issues"
+  },
+  "homepage": "https://github.com/Trion129/trion129.github.io#readme",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2016": "^6.16.0",
+    "babel-preset-react": "^6.16.0"
+  }
+}

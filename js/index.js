@@ -1,5 +1,3 @@
-'use strict';
-
 $('a[href^="#"]').on('click', function (event) {
   var target = $($(this).attr('href'));
 
@@ -161,7 +159,7 @@ var currentTab = 0;
 var ProjectView = React.createClass({
   displayName: 'ProjectView',
 
-  render: function render() {
+  render: function () {
     var Projectrows = this.props.projects.map(function (projectRow, index) {
       return React.createElement(ProjectRow, { projectRow: projectRow, key: index });
     });
@@ -176,7 +174,7 @@ var ProjectView = React.createClass({
 var ProjectRow = React.createClass({
   displayName: 'ProjectRow',
 
-  render: function render() {
+  render: function () {
     var projects = this.props.projectRow.map(function (project, index) {
       return React.createElement(Project, { key: index, project: project });
     });
@@ -191,10 +189,10 @@ var ProjectRow = React.createClass({
 var Project = React.createClass({
   displayName: 'Project',
 
-  render: function render() {
+  render: function () {
     return React.createElement(
       'div',
-      { className: 'col-sm-3 portfolio-item animation-element' },
+      { className: 'col-sm-3 portfolio-item' },
       React.createElement(
         'a',
         { href: this.props.project.link },
