@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Parminder Singh: Trion, Full Stack Developer and Software Engineer</title>
+    <title>Parminder Singh (Trion): Data Scientist and Full Stack Engineer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="fRhWTFjPpmCojYO0gUWT4r_M_Z_CLW9jh3YVbrWkD8w" />
 
@@ -11,157 +11,59 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
     <!-- Fonts -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Righteous|Raleway">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Sacramento" rel="stylesheet">
 
     <!-- CSS Necessities -->
-    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
     <link rel="stylesheet" href="css/style.css">
 
 </head>
-
 <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="http://trion129.github.io" target="_blank">Trion's Portfolio</a>
+    <div class="background-canvas"></div>
+    <section class="main">
+        <div class="head">Parminder Singh : Trion</div>
+        <div class="sub-head">Code Artist, Data Scientist and Full Stack Engineer</div>
+        <div class="careers">
+            <select size="3">
+                <option>Machine Learning Engineer</option>
+                <option>Data-Scientist</option>
+                <option selected>Full-Stack Developer</option>
+                <option>Writer</option>
+                <option>Artist</option>
+                <option>Mentor</option>
+                <option>Musician</option>
+            </select>
         </div>
-        <div class="collapse navbar-collapse" id="collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#home">Home</a>
-                </li>
-                <li>
-                    <a href="#about">About</a>
-                </li>
-                <li>
-                    <a href="#portfolio">Portfolio</a>
-                </li>
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <a id="home"></a>
-    <div class="intro-header">
-        <h1 class="header-text"><span style="color:#0F0">
-    Parminder</span> <span style="color:#CCC">Singh</span> : <span style="color:white">Trion</span>
-  </h1>
-        <h3 class="quote-text animation-element redo">
-    <i class="fa fa-rocket"></i><i> Designer and Developer </i><i class="fa fa-code"></i>
-  </h3>
-        <hr>
-        <div class="social animation-element redo">
-            <a href="http://twitter.com/trion129" target="_blank" class="btn btn-default btn-text"><i class="fa fa-twitter"></i> Twitter</a>
-            <a href="https://in.linkedin.com/in/trion129" target="_blank" class="btn btn-default btn-text"><i class="fa fa-linkedin"></i> Linkedin</a>
-            <a href="https://github.com/Trion129" target="_blank" class="btn btn-default btn-text"><i class="fa fa-github"></i> Github</a>
-            <a href="https://www.freecodecamp.com/trion129" target="_blank" class="btn btn-default btn-text"><i class="fa fa-fire"></i> FreeCodeCamp</a>
-        </div>
-    </div>
-
-    <!--About Section -->
-
-    <a id="about"></a>
-    <div class="about-section">
-        <p class="desc-head">About Me</p>
-        <p class="text-desc">
-            My name is Parminder Singh and I love to solve problems. I am a web designer and developer, software developer, writer and a quick learner. My biggest strengths are my creativity and imagination. My hobbies include drawing, writing poetry and of course
-            lots of coding!! I always keep working on something new and love to take new challenges.<br><br><span class="head">Languages and Frameworks:</span><br> C, C++, Python, Javascript, C#, Pylab, Java
-            <br>HTML, CSS3, JQuery, PHP, SQL, Bootstrap, MongoDB, ReactJS, NodeJS, Express
-            <br><br><span class="head">Working Tools:</span><br>Visual Basic, Sublime, Photoshop, Unity 3D, Git, Linux, Windows
-        </p>
-    </div>
-
-
-    <!-- Portfolio Section -->
-
-    <a id="portfolio"></a>
-    <div class="portfolio-section">
-        <h2 class="portfolio-header">My Projects</h2>
-        <div class="buttons">
-            <button class="switchbuttons enabled" onclick="changeTab(0)">Front End</button>
-            <button class="switchbuttons" onclick="changeTab(1)">Applications</button>
-            <button class="switchbuttons" onclick="changeTab(2)">APIs</button>
-            <button class="switchbuttons" onclick="changeTab(4)">Data Vis</button>
-            <button class="switchbuttons" onclick="changeTab(3)">Full Stack</button>
-        </div>
-        <div id="projectView"></div>
-    </div>
-
-    <!--Contact Section-->
-    <a id="contact"></a>
-    <div class="contact-section">
-        <div class="row">
-            <div class="email-container col-sm-6">
-                <p>Contact with me:<br></p>
-                <form id="email_form" action="https://postmail.invotes.com/send" method="post" role="form">
-                    <input type="hidden" name="subject" value="Portfolio Form Response" />
-                    <div class="form-group">
-                        <label for="name"> Name </label>
-                        <input id="name" name="extra_name" class="form-control" type='text' placeholder='Name' name="sender" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email"> Email Address</label>
-                        <input id="email" class="form-control" type='email' placeholder='Email Address' name="extra_email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message"> Message</label>
-                        <textarea id="message" name="text" class="form-control" rows='5' placeholder='Message' required></textarea>
-                    </div>
-                    <input type="hidden" name="access_token" value="pphotimlgfqa8g89i1tuk73b" />
-                    <input type="hidden" name="success_url" value=".?message=Email+Successfully+Sent%21&isError=0" />
-                    <input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" />
-                    <button id="submit_form" class="btn btn-default btn-text" type='submit'>Send</button>
-                </form>
+        <div class="bottom-zone">
+            <div class="email">
+                <a href="mailto:parmsingh101@gmail.com?Subject=I%20have%20a%20challenge%20for%20you" 
+                target="_top">
+                    Email
+                </a>
             </div>
-            <div class="col-sm-6">
-                <ul class="social-container list-group text-left">
-                    <li><a href="http://twitter.com/trion129" target="_blank" class="btn btn-default btn-text"><i class="fa fa-twitter "></i> Twitter</a></li><br>
-                    <li><a href="https://in.linkedin.com/in/trion129" target="_blank" class="btn btn-default btn-text"><i class="fa fa-linkedin"></i> Linkedin</a></li><br>
-                    <li><a href="https://github.com/Trion129" target="_blank" class="btn btn-default btn-text"><i class="fa fa-github"></i> Github</a></li><br>
-                    <li><a href="https://www.freecodecamp.com/trion129" target="_blank" class="btn btn-default btn-text"><i class="fa fa-fire"></i> FreeCodeCamp</a></li><br>
+            <div class="social-link">
+                <ul>
+                    <li>
+                        <a href="https://github.com/Trion129">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/trion129/">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://medium.com/@trion/">
+                            <i class="fa fa-medium"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
+            <div class="resume-link"><a href="#">Resume</a></div>
         </div>
-        <div class="footer">
-            <ul class="list-inline">
-                <li>
-                    <a href="#home">Home</a>
-                </li>
-                <li class="footer-menu-divider">&sdot;</li>
-                <li>
-                    <a href="#about">About</a>
-                </li>
-                <li class="footer-menu-divider">&sdot;</li>
-                <li>
-                    <a href="#portfolio">Portfolio</a>
-                </li>
-                <li class="footer-menu-divider">&sdot;</li>
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul>
-            <p class="copyright text-muted small">Copyright &copy; Trion Developent Studio. All Rights Reserved</p>
-        </div>
-    </div>
-    <img id="img_highQuality" src="http://s19.postimg.org/6c1q1b0fn/milky_way_1031138_1920.jpg">
-    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js'></script>
-    <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
-
-    <script src="js/index.js"></script>
-
-
-
-
+    </section>
+    <script src="bundle.js"></script>
 </body>
-
 </html>
