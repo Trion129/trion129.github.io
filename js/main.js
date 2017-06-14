@@ -40,7 +40,6 @@ function setCareerScroll(currentCareer, direction){
 }
 
 $(window).on('wheel', function(event){
-
   accumulator += 1
 
   if(event.originalEvent.deltaY < 0 && accumulator >= 2){
@@ -56,7 +55,6 @@ $(window).on('wheel', function(event){
 });
 
 $(window).swipe({
-    //Generic swipe handler for all directions
   swipe: (e, direction) => {
     switch(direction){
       case 'up':

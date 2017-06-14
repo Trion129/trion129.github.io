@@ -1,6 +1,7 @@
 // Extras
 body
-  background: linear-gradient(to bottom, #2980b9, #000538)//#000538
+  background: #000538
+  background: linear-gradient(to bottom, #2980b9, #000538)
   display: flex
   flex-flow: column nowrap
   align-items: center
