@@ -1,0 +1,110 @@
+// Extras
+body
+  background: linear-gradient(to bottom, #2980b9, #000538)//#000538
+  display: flex
+  flex-flow: column nowrap
+  align-items: center
+  height: 100vh
+  color: #F7F9F9
+
+a
+  color: #F7F9F9
+
+// Body layout
+.background-canvas
+  z-index: 0
+  position: fixed
+  width: 100%
+  height: 100%
+
+.main
+  order: 0
+  display: inline-flex
+  align-items: center
+  flex-direction: column
+  flex-grow: 10
+  /* flex-shrink: 5 */
+  z-index: 1
+  text-align: center
+  margin: 10% auto 5%
+
+.bottom-zone
+  width: 100%
+  font: 1.7em 'Cinzel'
+  display: inline-flex
+  order: 1
+  padding-bottom: 20px 
+  justify-content: space-between
+  text-align: center
+  z-index: 1
+
+/* Main zone
+ */
+
+.head
+  font: 5em 'Sacramento'
+  margin-bottom: 60px
+
+.career-selection
+  position: relative
+  font-family: 'Cinzel' 
+  height: 70px
+  width: auto
+
+.career
+  display: none
+  margin: 10px
+
+.selected
+  display: block
+  font-size: 2.5em
+
+.selected-after
+  display: block
+  font-size: 2em
+  color: rgba(255,255,255, 0.5)
+  
+.selected-before
+  display: block
+  font-size: 2em
+  color: rgba(255,255,255, 0.5)
+
+/* Bottom Zone
+ */
+.bottom-zone > div
+  margin: 5px
+
+.email
+  /* width: 35% */
+  padding-left: 2%
+  flex-shrink: 1
+  display: inline-block
+
+.resume-link
+  display: inline-block
+  /* width: 35% */
+  flex-shrink: 1
+  padding-right: 2%
+
+
+// For smaller screen
+@media (max-width: 640px)
+  // Body layout
+  .main
+    margin: 10% auto 5%
+
+  // Main zone
+  .head
+    font-size: 60px
+    margin-bottom: 10px
+
+  .career-selection
+    font-size: 0.7em
+
+  // Bottom Zone
+  .bottom-zone
+    font-size: 1.5em
+    justify-content: space-around
+
+  .social-desc
+    display: none
