@@ -1,11 +1,15 @@
 require("../css/reset.css")
 require("../css/style.css")
 let $ = require("jquery")
-require("jquery-touchswipe")
 const p5 = require("p5")
 
-let currentCareer = 1
-let accumulator = 0
+let currentCareer = 2
+
+function rotateAuto(){
+  currentCareer = setCareerScroll(currentCareer, 0)
+}
+
+let rotator = setInterval(rotateAuto, 3000);
 
 function setCareerScroll(currentCareer, direction){
   let backCareer, newCurrentCareer, nextCareer
@@ -40,29 +44,27 @@ function setCareerScroll(currentCareer, direction){
 }
 
 $(window).on('wheel', function(event){
-  accumulator += 1
+  clearInterval(rotator);
 
-  if(event.originalEvent.deltaY < 0 && accumulator >= 2){
+  if(event.originalEvent.deltaY < 0){
     // wheeled up
     currentCareer = setCareerScroll(currentCareer, 1)
-    accumulator = 0
   }
-  else if(event.originalEvent.deltaY > 0 && accumulator >= 2) {
+  else if(event.originalEvent.deltaY > 0) {
     // wheeled down
     currentCareer = setCareerScroll(currentCareer, 0)
-    accumulator = 0
   }
 });
 
-$(window).swipe({
-  swipe: (e, direction) => {
-    switch(direction){
-      case 'up':
-        currentCareer = setCareerScroll(currentCareer, 1)
-        break
-      case 'down':
-        currentCareer = setCareerScroll(currentCareer, 0)
-        break
-    }
-  }
-});
+// $(window).swipe({
+//   swipe: (e, direction) => {
+//     switch(direction){
+//       case 'up':
+//         currentCareer = setCareerScroll(currentCareer, 1)
+//         break
+//       case 'down':
+//         currentCareer = setCareerScroll(currentCareer, 0)
+//         break
+//     }
+//   }
+// });

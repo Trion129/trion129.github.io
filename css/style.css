@@ -47,28 +47,37 @@ a
   margin-bottom: 60px
 
 .career-selection
-  position: relative
+  display: inline-flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
   font-family: 'Cinzel' 
   height: 70px
   width: auto
 
 .career
   display: none
-  margin: 10px
 
 .selected
+  order: 2
+  margin: 20px
   display: block
   font-size: 2.5em
+  transition: all 700ms linear
 
 .selected-after
+  order: 3
   display: block
-  font-size: 2em
+  font-size: 1.7em
   color: rgba(255,255,255, 0.5)
+  transition: all 700ms linear, order 0ms
   
 .selected-before
+  order: 1
   display: block
-  font-size: 2em
+  font-size: 1.7em
   color: rgba(255,255,255, 0.5)
+  transition: all 700ms linear, order 0ms
 
 /* Bottom Zone
  */
