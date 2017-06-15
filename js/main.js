@@ -31,12 +31,8 @@ var canvasHandler = (p)=>{
         var d = force.mag();
         d = p.constrain(d, 1, 35);
 
-        let strength = 0.1 / (d * d)
+        let strength = 0.07 / (d * d)
         force.setMag(strength)
-
-        if (d < 20) {
-          force.mult(-30);
-        }
 
         this.acc.add(force)
       })
@@ -73,6 +69,7 @@ var canvasHandler = (p)=>{
   p.setup = ()=>{
     p.createCanvas(window.innerWidth, window.innerHeight)
     p.stroke(255)
+    p.randomSeed(102)
     // p.frameRate(1)
     initialize()
   }
