@@ -45463,67 +45463,84 @@ __webpack_require__(1);
 var $ = __webpack_require__(2);
 var p5 = __webpack_require__(3);
 
-var currentCareer = 2;
+var canvasHandler = function canvasHandler(p) {
 
-function rotateAuto() {
-  currentCareer = setCareerScroll(currentCareer, 0);
-}
+  var points = [];
+  var edges = [];
 
-var rotator = setInterval(rotateAuto, 3000);
+  function Point(x, y, z) {
+    var _this = this;
 
-function setCareerScroll(currentCareer, direction) {
-  var backCareer = void 0,
-      newCurrentCareer = void 0,
-      nextCareer = void 0;
-  switch (direction) {
-    case 0:
-      backCareer = currentCareer;
-      newCurrentCareer = (currentCareer + 1) % 9;
-      nextCareer = (currentCareer + 2) % 9;
-      break;
-    case 1:
-      backCareer = currentCareer - 2;
-      newCurrentCareer = currentCareer - 1;
-      nextCareer = currentCareer;
+    this.pos = p.createVector(x, y);
+    this.vel = p.createVector(0, 0);
+    this.acc = p.createVector(0, 0);
+    this.z = z;
+    this.connected = [];
+    this.draw = function () {
+      _this.acc = p.createVector(0, 0);
+      _this.connected.forEach(function (other) {
+        var noise1 = p.noise(Math.random() * 1000) - 0.5;
+        var noise2 = p.noise(Math.random() * 1000) - 0.5;
 
-      backCareer = backCareer < 0 ? 9 + backCareer : backCareer;
-      newCurrentCareer = newCurrentCareer < 0 ? 9 + newCurrentCareer : newCurrentCareer;
-      break;
+        var transparency = (_this.z + other.z) / 20.;
+
+        p.stroke("rgba(255,255,255," + transparency + ")");
+        p.strokeWeight(transparency);
+        p.line(_this.pos.x, _this.pos.y, other.pos.x, other.pos.y);
+
+        var force = p5.Vector.sub(other.pos, _this.pos);
+        var d = force.mag();
+        d = p.constrain(d, 1, 35);
+
+        var strength = 0.1 / (d * d);
+        force.setMag(strength);
+
+        if (d < 20) {
+          force.mult(-30);
+        }
+
+        _this.acc.add(force);
+      });
+      _this.vel.add(_this.acc);
+      _this.vel.limit(2);
+
+      _this.pos.add(_this.vel);
+      _this.pos.x = p.constrain(_this.pos.x, 0, p.windowWidth);
+      _this.pos.y = p.constrain(_this.pos.y, 0, p.windowHeight);
+    };
   }
 
-  $('.selected-before, .selected, .selected-after').removeClass('selected-before').removeClass('selected').removeClass('selected-after');
+  function initialize() {
+    var dots = 15;
+    points = [];
+    for (var i = 0; i < dots; i++) {
+      points.push(new Point(p.random(p.windowWidth), p.random(p.windowHeight), p.random(5)));
+    }
 
-  $("#career-" + backCareer).addClass('selected-before');
-  $("#career-" + newCurrentCareer).addClass('selected');
-  $("#career-" + nextCareer).addClass('selected-after');
-
-  return newCurrentCareer;
-}
-
-$(window).on('wheel', function (event) {
-  clearInterval(rotator);
-
-  if (event.originalEvent.deltaY < 0) {
-    // wheeled up
-    currentCareer = setCareerScroll(currentCareer, 1);
-  } else if (event.originalEvent.deltaY > 0) {
-    // wheeled down
-    currentCareer = setCareerScroll(currentCareer, 0);
+    for (var _i = 0; _i < dots; _i++) {
+      points[_i].connected.push(points[(_i + 1) % dots]);
+      points[_i].connected.push(points[(_i + 2) % dots]);
+      points[_i].connected.push(points[(_i + 3) % dots]);
+      points[(_i + 1) % dots].connected.push(points[_i]);
+      points[(_i + 2) % dots].connected.push(points[_i]);
+    }
   }
-});
 
-// $(window).swipe({
-//   swipe: (e, direction) => {
-//     switch(direction){
-//       case 'up':
-//         currentCareer = setCareerScroll(currentCareer, 1)
-//         break
-//       case 'down':
-//         currentCareer = setCareerScroll(currentCareer, 0)
-//         break
-//     }
-//   }
-// });
+  p.setup = function () {
+    p.createCanvas(window.innerWidth, window.innerHeight);
+    p.stroke(255
+    // p.frameRate(1)
+    );initialize();
+  };
+  p.draw = function () {
+    p.clear();
+    points.forEach(function (point) {
+      point.draw();
+    });
+  };
+};
+
+var animation = new p5(canvasHandler, "background-canvas");
 
 /***/ }),
 /* 5 */

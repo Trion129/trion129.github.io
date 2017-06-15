@@ -12,15 +12,16 @@ a
   color: #F7F9F9
 
 // Body layout
-.background-canvas
+#background-canvas
   z-index: 0
   position: fixed
-  width: 100%
-  height: 100%
+  /* width: 100%
+  height: 100% */
 
 .main
   order: 0
   display: inline-flex
+  font-family: 'Sacramento'
   align-items: center
   flex-direction: column
   flex-grow: 10
@@ -46,38 +47,18 @@ a
   font: 5em 'Sacramento'
   margin-bottom: 60px
 
-.career-selection
-  display: inline-flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
-  font-family: 'Cinzel' 
-  height: 70px
-  width: auto
-
 .career
-  display: none
-
-.selected
-  order: 2
-  margin: 20px
+  font-family: 'Cinzel'
+  flex-flow: column wrap
+  text-align: center
+  align-items: center
+  justify-content: space-around
   display: block
+  height: 70px
   font-size: 2.5em
-  transition: all 700ms linear
 
-.selected-after
-  order: 3
+.career > div
   display: block
-  font-size: 1.7em
-  color: rgba(255,255,255, 0.5)
-  transition: all 700ms linear, order 0ms
-  
-.selected-before
-  order: 1
-  display: block
-  font-size: 1.7em
-  color: rgba(255,255,255, 0.5)
-  transition: all 700ms linear, order 0ms
 
 /* Bottom Zone
  */
@@ -108,8 +89,8 @@ a
     font-size: 60px
     margin-bottom: 10px
 
-  .career-selection
-    font-size: 0.7em
+  .career
+    font-size: 1.4em
 
   // Bottom Zone
   .bottom-zone
@@ -118,3 +99,7 @@ a
 
   .social-desc
     display: none
+
+@media (max-width: 640px) and (orientation:portrait)
+  .bottom-zone
+    margin-bottom: 50px
