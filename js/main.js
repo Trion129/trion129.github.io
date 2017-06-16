@@ -71,6 +71,15 @@ var canvasHandler = (p)=>{
 
   function initialize() {
     points = []
+    edges = []
+    iterator = 4000
+    segmentLength = 100
+    transparencyFactor = 25
+    noOfFishes = 150
+    dots = 10
+
+    previous = null
+    now = null
     for(let i = 0; i < dots; i++){
       points.push(new Point(
         p.random(p.windowWidth),
