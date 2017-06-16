@@ -5,14 +5,8 @@ const p5 = require("p5")
 
 var canvasHandler = (p)=>{
 
-  let flock
-  let points = []
-  let edges = []
-  let iterator = 4000
-  let segmentLength = 100
-  let transparencyFactor = 25
-  let noOfFishes = 150
-  let dots = 10
+  let flock, points, edges, iterator
+  let segmentLength, transparencyFactor,noOfFishes, dots
 
   let previous, now = null;
 
@@ -76,6 +70,11 @@ var canvasHandler = (p)=>{
     segmentLength = 100
     transparencyFactor = 25
     noOfFishes = 150
+
+    if(p.windowWidth < 640){
+      noOfFishes = 20
+    }
+    
     dots = 10
 
     previous = null

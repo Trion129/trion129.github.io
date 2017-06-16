@@ -21,7 +21,6 @@ a
 .main
   order: 0
   display: inline-flex
-  font-family: 'Sacramento'
   align-items: center
   flex-direction: column
   flex-grow: 10
@@ -44,7 +43,7 @@ a
  */
 
 .head
-  font: 5em 'Sacramento'
+  font: 5em 'Lobster Two'
   margin-bottom: 60px
 
 .career
