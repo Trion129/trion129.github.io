@@ -5,10 +5,16 @@ const p5 = require("p5")
 
 var canvasHandler = (p)=>{
 
+  let flock
   let points = []
   let edges = []
-  let flock
+  let iterator = 4000
+  let segmentLength = 100
+  let transparencyFactor = 25
+  let noOfFishes = 150
+  let dots = 10
 
+  let previous, now = null;
 
   function Point(x, y, z) {
     this.pos = p.createVector(x, y)
@@ -19,10 +25,7 @@ var canvasHandler = (p)=>{
     this.draw = ()=>{
       this.acc = p.createVector(0,0)
       this.connected.forEach((other)=>{
-        let noise1 = p.noise(Math.random() * 1000) - 0.5
-        let noise2 = p.noise(Math.random() * 1000) - 0.5
-
-        let transparency = (this.z + other.z)/20.
+        let transparency = (this.z + other.z)/transparencyFactor
 
         p.stroke("rgba(255,255,255,"+transparency+")")
         p.strokeWeight(transparency)
@@ -33,8 +36,12 @@ var canvasHandler = (p)=>{
         var d = force.mag();
         d = p.constrain(d, 1, 25);
 
-        let strength = 0.07 / (d * d)
+        let strength = d/10000
         force.setMag(strength)
+
+        if(d < 5){
+          force.mult(-1)
+        }
 
         this.acc.add(force)
       })
@@ -63,7 +70,6 @@ var canvasHandler = (p)=>{
   }
 
   function initialize() {
-    let dots = 15
     points = []
     for(let i = 0; i < dots; i++){
       points.push(new Point(
@@ -82,7 +88,7 @@ var canvasHandler = (p)=>{
 
     flock = new Flock();
 
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < noOfFishes; i++) {
       var b = new Fish(p.random(0, p.windowWidth/2), p.random(0, 10));
       flock.addFish(b);
     }
@@ -129,7 +135,7 @@ var canvasHandler = (p)=>{
       var ali = this.align(fishs);      // Alignment
       var coh = this.cohesion(fishs);   // Cohesion
       // Arbitrarily weight these forces
-      sep.mult(1.5);
+      sep.mult(1.3);
       ali.mult(1.0);
       coh.mult(1.0);
       // Add the force vectors to acceleration
@@ -269,7 +275,40 @@ var canvasHandler = (p)=>{
     points.forEach((point)=>{
       point.draw()
     })
-    flock.run();
+    flock.run()
+
+    /* Glow Part */
+    iterator++
+    
+    if(iterator > segmentLength){
+      iterator = 0
+
+      if(now != null){
+        previous = now
+        now = now.connected[p.floor(p.random(0, now.connected.length))]
+      }
+      else{
+        previous = points[p.floor(p.random(0, points.length))]
+        now = previous.connected[p.floor(p.random(0, previous.connected.length))]
+      }
+    }
+
+    p.stroke("rgba(255,255,255,0.3)")
+    p.strokeWeight(1.3)
+    
+    p.line(
+        previous.pos.x,
+        previous.pos.y,
+        now.pos.x,
+        now.pos.y)
+
+    let difference = p5.Vector.sub(now.pos, previous.pos)
+    let dist = now.pos.dist(previous.pos)
+    difference.normalize()
+    let newPos = p5.Vector.add(previous.pos, difference.mult(dist/segmentLength * iterator))
+    p.ellipseMode(p.CENTER)
+    p.ellipse(newPos.x, newPos.y, 5)
+
   }
   p.windowResized = ()=>{
     p.resizeCanvas(window.innerWidth, window.innerHeight);
