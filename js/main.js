@@ -1,7 +1,5 @@
 require("../css/reset.css")
 require("../css/style.css")
-let $ = require("jquery")
-const p5 = require("p5")
 
 var canvasHandler = (p)=>{
 
@@ -9,6 +7,7 @@ var canvasHandler = (p)=>{
   let segmentLength, transparencyFactor,noOfFishes, dots
 
   let previous, now = null;
+  let mouseVec;
 
   function Point(x, y, z) {
     this.pos = p.createVector(x, y)
@@ -120,11 +119,14 @@ var canvasHandler = (p)=>{
 
   function Fish(x,y) {
     this.acceleration = p.createVector(0,0);
-    this.velocity = p.createVector(p.random(-1,1),p.random(-1,1));
-    this.position = p.createVector(x,y);
-    this.r = 3.0;
-    this.maxspeed = 1;    // Maximum speed
-    this.maxforce = 0.05; // Maximum steering force
+    this.velocity = p.createVector(p.random(-1,1),p.random(-1,1))
+    this.position = p.createVector(x,y)
+    this.r = 3.5
+    this.maxspeed = 2  // Maximum speed
+    this.maxforce = 0.05 // Maximum steering force
+    this.fishLength = 5
+    this.fishWidth = 2
+    this.fishBravery = p.random(30, 200)
 
     this.run = (fishs)=>{
       this.flock(fishs);
@@ -143,7 +145,7 @@ var canvasHandler = (p)=>{
       var ali = this.align(fishs);      // Alignment
       var coh = this.cohesion(fishs);   // Cohesion
       // Arbitrarily weight these forces
-      sep.mult(1.3);
+      sep.mult(1.2);
       ali.mult(1.0);
       coh.mult(1.0);
       // Add the force vectors to acceleration
@@ -155,6 +157,16 @@ var canvasHandler = (p)=>{
     this.update = ()=>{
       this.velocity.add(this.acceleration);
       this.velocity.limit(this.maxspeed);
+
+      let distfromMouse = p5.Vector.dist(this.position, mouseVec)
+      let mouseForce;
+      if (distfromMouse < this.fishBravery){
+        mouseForce = p5.Vector.sub(this.position, mouseVec)
+        mouseForce.normalize()
+        mouseForce.mult(100/distfromMouse)
+        this.velocity.add(mouseForce)
+      }
+
       this.position.add(this.velocity);
       this.acceleration.mult(0);
     }
@@ -174,25 +186,25 @@ var canvasHandler = (p)=>{
       // Draw a triangle rotated in the direction of velocity
       var theta = this.velocity.heading() + p.radians(90);
       p.push();
-      p.fill("rgba(41, 128, 185, 0.4)");
+      p.fill("rgba(41, 128, 185, 0.17)");
       p.noStroke();
       p.translate(this.position.x,this.position.y);
       p.rotate(theta-p.PI/2);
       p.ellipseMode(p.CENTER)
-      p.ellipse(0,0, this.r*2, this.r)
+      p.ellipse(0,0, this.r*this.fishLength, this.r * this.fishWidth)
       p.beginShape();
       p.vertex(-this.r, 0);
-      p.vertex(-this.r*2, -this.r/2);
-      p.vertex(-this.r*2, this.r/2);
+      p.vertex(-this.r*this.fishLength, -this.r * 4/5);
+      p.vertex(-this.r*this.fishLength, this.r * 4/5);
       p.endShape(p.CLOSE);
       p.pop();
     }
 
     this.borders = ()=>{
-      if (this.position.x < -this.r)  this.position.x = p.windowWidth +this.r;
-      if (this.position.y < -this.r)  this.position.y = p.windowHeight+this.r;
-      if (this.position.x > p.windowWidth +this.r) this.position.x = -this.r;
-      if (this.position.y > p.windowHeight +this.r) this.position.y = -this.r;
+      if (this.position.x < -this.r-this.fishLength)  this.position.x = p.windowWidth +this.r+this.fishLength;
+      if (this.position.y < -this.r-this.fishLength)  this.position.y = p.windowHeight+this.r+this.fishLength;
+      if (this.position.x > p.windowWidth +this.r+this.fishLength) this.position.x = -this.r-this.fishLength;
+      if (this.position.y > p.windowHeight +this.r+this.fishLength) this.position.y = -this.r-this.fishLength;
     }
 
     this.separate = (fishs)=>{
@@ -279,6 +291,9 @@ var canvasHandler = (p)=>{
     initialize()
   }
   p.draw = ()=>{
+
+    mouseVec = p.createVector(p.mouseX, p.mouseY);
+
     p.clear()
     points.forEach((point)=>{
       point.draw()
@@ -314,8 +329,12 @@ var canvasHandler = (p)=>{
     let dist = now.pos.dist(previous.pos)
     difference.normalize()
     let newPos = p5.Vector.add(previous.pos, difference.mult(dist/segmentLength * iterator))
+    p.push()
+    p.noStroke()
+    p.fill("#4FCAFF")
     p.ellipseMode(p.CENTER)
     p.ellipse(newPos.x, newPos.y, 5)
+    p.pop()
 
   }
   p.windowResized = ()=>{
