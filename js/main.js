@@ -185,7 +185,7 @@ var canvasHandler = (p)=>{
       // Draw a triangle rotated in the direction of velocity
       var theta = this.velocity.heading() + p.radians(90);
       p.push();
-      p.fill("rgba(41, 128, 185, 0.17)");
+      p.fill("rgba(41, 128, 185, 0.35)");
       p.noStroke();
       p.translate(this.position.x,this.position.y);
       p.rotate(theta-p.PI/2);
