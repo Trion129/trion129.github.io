@@ -37,6 +37,6 @@
     "babel-preset-env": "^1.5.2",
     "extract-text-webpack-plugin": "^2.1.2",
     "postcss-loader": "^2.0.5",
-    "webpack": "^2.6.1"
+    "webpack": "^3.10.0"
   }
 }
