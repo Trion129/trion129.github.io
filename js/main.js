@@ -71,7 +71,7 @@ var canvasHandler = (p)=>{
     noOfFishes = 150
 
     if(p.windowWidth < 640){
-      noOfFishes = 20
+      noOfFishes = 50
     }
     
     dots = 10
@@ -136,14 +136,13 @@ var canvasHandler = (p)=>{
     }
 
     this.applyForce = (force)=>{
-      // We could add mass here if we want A = F / M
       this.acceleration.add(force);
     }
 
     this.flock = (fishs)=>{
-      var sep = this.separate(fishs);   // Separation
-      var ali = this.align(fishs);      // Alignment
-      var coh = this.cohesion(fishs);   // Cohesion
+      var sep = this.separate(fishs);
+      var ali = this.align(fishs);
+      var coh = this.cohesion(fishs);
       // Arbitrarily weight these forces
       sep.mult(1.2);
       ali.mult(1.0);
