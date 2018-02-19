@@ -85,12 +85,16 @@ var canvasHandler = (p)=>{
         p.random(5)))
     }
 
+    /*
+      Connect each point to next 3 points
+    */
     for(let i = 0; i < dots; i++){
       points[i].connected.push(points[(i+1) % dots])
       points[i].connected.push(points[(i+2) % dots])
       points[i].connected.push(points[(i+3) % dots])
       points[(i+1) % dots].connected.push(points[i])
       points[(i+2) % dots].connected.push(points[i])
+      points[(i+3) % dots].connected.push(points[i])
     }
 
     flock = new Flock();
@@ -185,7 +189,7 @@ var canvasHandler = (p)=>{
       // Draw a triangle rotated in the direction of velocity
       var theta = this.velocity.heading() + p.radians(90);
       p.push();
-      p.fill("rgba(41, 128, 185, 0.35)");
+      p.fill("rgba(41, 128, 185, 0.4)");
       p.noStroke();
       p.translate(this.position.x,this.position.y);
       p.rotate(theta-p.PI/2);
