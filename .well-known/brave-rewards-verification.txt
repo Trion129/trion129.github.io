@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: trion.me
+Token: 1f15b8a4826801da72870af77a61a3700f9b813b4953acd53eaf3fa4193bf11a
